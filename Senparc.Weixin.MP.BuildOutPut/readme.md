@@ -9,6 +9,31 @@ Senparc.Weixin.MP.MvcExtension更新日志见：https://github.com/JeffreySu/Wei
 
 Senparc.Weixin.MP.dll升级记录
 ----------
+v1.5 /2013-8-4
+
+这是一个重要更新。
+
+为MessageHandler提供了一个DefaultResponseMessage的抽象方法，
+DefaultResponseMessage必须在子类中重写，用于返回没有处理过的消息类型（也可以用于默认消息，如帮助信息等）；
+其中所有原OnXX的抽象方法已经都改为虚方法，可以不必每个都重写。若不重写，默认返回DefaultResponseMessage方法中的结果。
+
+v1.4 /2013-7-23
+
+为HttpUtility下方法提供Encoding选项。
+
+v1.3 /2013-7-9
+
+封装System.Web.HttpUtility下HTML及Url的Encode及Decode方法
+
+v1.2 /2013-7-8
+
+独立封装RequestUtility.GetQueryString方法，将Dictionary<string,string>类型数据转为QueryString格式。
+
+v1.1 /2013-7-6
+
+添加HttpPost提交方法，支持更多数据提交格式，为实现P2P更多扩展做准备。
+
+
 v1.0 /2013-6-25
 
 微信4.5 API正式稳定版。修复ResponseMessage生成的XML节点顺序问题。

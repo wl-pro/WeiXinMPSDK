@@ -2,7 +2,7 @@
 =================
 
 
-已经支持所有微信4.5 API，支持语音接收及返回音乐格式。
+已经支持所有微信4.5 API，支持语音接收及返回音乐格式。微信5.0目前所发布的接口也都已经集成（自定义菜单），我会持续关注API变化。
 
 已经支持关注（订阅）事件推送（尚未发布的消息推送功能可以通过项目中的单元测试进行开发，如自定义菜单）。
 
@@ -18,7 +18,11 @@
 
 源代码及最新更新：https://github.com/JeffreySu/WeiXinMPSDK
 
+Q&A：https://github.com/JeffreySu/WeiXinMPSDK/wiki/QA
+
 SDK技术交流QQ群：300313885
+
+业务联系QQ：498977166
 
 新浪微博：[@苏震巍](http://weibo.com/jeffreysu1984)
 
@@ -133,17 +137,25 @@ namespace Senparc.Weixin.MP.Sample.CustomerMessageHandler
         {
 
         }
+        
+        public override IResponseMessageBase DefaultResponseMessage(IRequestMessageBase requestMessage)
+        {
+            var responseMessage = this.CreateResponseMessage<ResponseMessageText>();//ResponseMessageText也可以是News等其他类型
+            responseMessage.Content = "这条消息来自DefaultResponseMessage。";
+            return responseMessage;
+        }
 
         public override IResponseMessageBase OnTextRequest(RequestMessageText requestMessage)
         {
-            throw new NotImplementedException();
+            //...
         }
 
         public override IResponseMessageBase OnVoiceRequest(RequestMessageVoice requestMessage)
         {
-            throw new NotImplementedException();
+            //...
         }
-
+        
+        //更多没有重写的OnXX方法，将默认返回DefaultResponseMessage中的结果。
         ....
     }
 }
@@ -188,6 +200,13 @@ uniclo
 曹战强
 
 何世亮
+
+YGF
+
+陈明
+
+吴昌克
+
 
 License
 --------------
