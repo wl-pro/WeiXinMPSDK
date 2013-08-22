@@ -14,7 +14,7 @@ namespace Senparc.Weixin.MP.Test.CommonAPIs
         [TestMethod]
         public void CreateMenuTest()
         {
-            return;//已经通过测试
+            //return;//已经通过测试
 
             LoadToken();
 
@@ -60,7 +60,7 @@ namespace Senparc.Weixin.MP.Test.CommonAPIs
         [TestMethod]
         public void GetMenuTest()
         {
-            return;//已经通过测试
+            //return;//已经通过测试
             LoadToken();
 
             var result = CommonApi.GetMenu(tokenResult.access_token);
@@ -73,7 +73,7 @@ namespace Senparc.Weixin.MP.Test.CommonAPIs
         [TestMethod]
         public void DeleteMenuTest()
         {
-            return;//删除之后，GetMenu将返回null
+            //return;//已经通过测试，删除之后，GetMenu将返回null
 
             LoadToken();
 
